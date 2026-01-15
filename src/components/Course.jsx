@@ -1,9 +1,9 @@
 import styles from './course.module.css';
 
-import im from '../assets/AWS.jpg';
-const course1 = "AWS";
+import im from '../assets/images/coming-soon.jpg';
+const course1 = "This is course 1";
 
-function Course({image=im,name="def",price="99.00",rating="4.5",show=false}) {
+function Course({image=im,name="coming-soon",price="99.00",rating="4.5",show=false}) {
     if(show){
      return(
         <div className='card'>
@@ -17,7 +17,7 @@ function Course({image=im,name="def",price="99.00",rating="4.5",show=false}) {
     }
     else{
         return(
-            <>
+            <> 
                 <div className="card">Course time ends</div>
             </>
         )
