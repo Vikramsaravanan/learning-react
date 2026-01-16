@@ -1,13 +1,30 @@
-import styles from './course.module.css';
 import "../index.css";
-
 import im from '../assets/images/coming-soon.jpg';
+import { useState } from 'react';
+
 const course1 = "This is course 1";
 
 function Course({image=im,name,price="00.00",rating="0",show=false}) {
 
+    let disc = true;
+    const [purchased,setPurchased] = useState(false);
     function purchase(discount){
         console.log("Purchased "+name+" for $"+(price-(discount*price)/100));
+        setPurchased(true);
+        console.log(purchased);
+    }
+
+    const[discount,setDiscount] = useState("Apply 10% Discount");
+    const[final_price,setFinal_price] = useState(price);
+    function applyDiscount(){
+        if(disc){
+            const newprice = price - (20*price)/100;
+            setFinal_price(newprice);
+            setDiscount("Discount Applied");
+            disc = false;
+            console.log("price updated");
+        }
+        
     }
 
     if(show){
@@ -16,9 +33,11 @@ function Course({image=im,name,price="00.00",rating="0",show=false}) {
             <img src={image} alt="" />
             <h3>{name}</h3>
             {/* <p>This is Markiv's {props.name} course</p> */}
-            <p>${price}</p>
+            <p>${final_price}</p>
             <p>{rating}</p>
-            <button onClick={(e)=>{{purchase(20)}; console.log(e)}} className="mt-3 bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-700">  Buy Now </button>
+            <button onClick={(e)=>{{purchase(20)};}} className="mt-3 bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-700">  Buy Now </button>
+            <button onClick={() => {{applyDiscount()}}} className="mt-3 bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-700">{discount}</button>
+            <p>{purchased ? "Already purchased":"Get it Now"}</p>
         </div> 
      );
     }
