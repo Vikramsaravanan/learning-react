@@ -8,25 +8,33 @@ function Course({image=im,name,price="00.00",rating="0",show=false}) {
 
     let disc = true;
     const [purchased,setPurchased] = useState(false);
-    function purchase(discount){
-        console.log("Purchased "+name+" for $"+(price-(discount*price)/100));
-        setPurchased(true);
-        console.log(purchased);
-    }
-
+    
     const[discount,setDiscount] = useState("Apply 10% Discount");
     const[final_price,setFinal_price] = useState(price);
-    function applyDiscount(){
+    function applyDiscount(m){
         if(disc){
-            const newprice = price - (20*price)/100;
+            const newprice = price - (m*price)/100;
             setFinal_price(newprice);
             setDiscount("Discount Applied");
             disc = false;
             console.log("price updated");
         }
+        else{
+            console.log("Summa summa laam nonda kudaathu");
+        }
         
     }
 
+    function purchase(discount){
+        if(purchased)
+            console.log("summa idhayae aluthaama vera veliya paaru!");
+        else{
+            console.log("Purchased "+name+" for $"+(final_price));
+            setPurchased(true);
+            console.log("Order potaachu");
+        }
+    }
+    
     if(show){
      return(
         name && <div className='card'>
@@ -36,7 +44,7 @@ function Course({image=im,name,price="00.00",rating="0",show=false}) {
             <p>${final_price}</p>
             <p>{rating}</p>
             <button onClick={(e)=>{{purchase(20)};}} className="mt-3 bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-700">  Buy Now </button>
-            <button onClick={() => {{applyDiscount()}}} className="mt-3 bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-700">{discount}</button>
+            <button onClick={(p) => {{applyDiscount(20)}}} className="mt-3 bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-700">{discount}</button>
             <p>{purchased ? "Already purchased":"Get it Now"}</p>
         </div> 
      );
@@ -53,12 +61,5 @@ function Course({image=im,name,price="00.00",rating="0",show=false}) {
         )
     }
 }
-
-// Course.propTypes= {
-//     name: String,
-//     price: String,
-//     rating: String,
-//     show: Boolean
-// }
 
 export default Course;
