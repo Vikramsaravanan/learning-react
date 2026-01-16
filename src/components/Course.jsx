@@ -4,10 +4,10 @@ import "../index.css";
 import im from '../assets/images/coming-soon.jpg';
 const course1 = "This is course 1";
 
-function Course({image=im,name="coming-soon",price="00.00",rating="0",show=false}) {
+function Course({image=im,name,price="00.00",rating="0",show=false}) {
     if(show){
      return(
-        <div className='card'>
+        name && <div className='card'>
             <img src={image} alt="" />
             <h3>{name}</h3>
             {/* <p>This is Markiv's {props.name} course</p> */}
