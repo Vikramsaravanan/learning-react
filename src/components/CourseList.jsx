@@ -30,7 +30,7 @@ export default function CourseList() {
     const addedcourseslist = addedcourse.map(
         (course,index)=> <Course key={index} image={course.image} name={course.name} price={course.price} rating={course.rating} show={course.show}/>)
     
-        // return courseslist;
+        return courseslist;
     // return basicscourse;
-    return addedcourseslist;
+    // return addedcourseslist;
 }

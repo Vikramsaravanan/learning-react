@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       {/* <Navbar /> */}
-      <div className='pt-10 grid grid-cols-5'>
+      <div className='pt-10'>
         <CourseList/>
       {/* <Footer /> */}
       </div>

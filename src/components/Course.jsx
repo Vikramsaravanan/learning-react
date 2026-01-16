@@ -5,6 +5,11 @@ import im from '../assets/images/coming-soon.jpg';
 const course1 = "This is course 1";
 
 function Course({image=im,name,price="00.00",rating="0",show=false}) {
+
+    function purchase(discount){
+        console.log("Purchased "+name+" for $"+(price-(discount*price)/100));
+    }
+
     if(show){
      return(
         name && <div className='card'>
@@ -12,7 +17,8 @@ function Course({image=im,name,price="00.00",rating="0",show=false}) {
             <h3>{name}</h3>
             {/* <p>This is Markiv's {props.name} course</p> */}
             <p>${price}</p>
-            <span>{rating}</span>
+            <p>{rating}</p>
+            <button onClick={(e)=>{{purchase(20)}; console.log(e)}} className="mt-3 bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-700">  Buy Now </button>
         </div> 
      );
     }
@@ -29,11 +35,11 @@ function Course({image=im,name,price="00.00",rating="0",show=false}) {
     }
 }
 
-Course.propTypes= {
-    name: String,
-    price: String,
-    rating: String,
-    show: Boolean
-}
+// Course.propTypes= {
+//     name: String,
+//     price: String,
+//     rating: String,
+//     show: Boolean
+// }
 
 export default Course;
