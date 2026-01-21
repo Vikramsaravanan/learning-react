@@ -4,10 +4,11 @@ import { useState } from 'react';
 
 const course1 = "This is course 1";
 
-function Course({image=im,name,price="00.00",rating="0",show=false}) {
+function Course({image=im,name,price="00.00",rating="0"}) {
 
     let disc = true;
     const [purchased,setPurchased] = useState(false);
+    const [show,setShow] = useState(true);
     
     const[discount,setDiscount] = useState("Apply 10% Discount");
     const[final_price,setFinal_price] = useState(price);
@@ -26,6 +27,7 @@ function Course({image=im,name,price="00.00",rating="0",show=false}) {
     }
 
     function purchase(discount){
+        
         if(purchased)
             console.log("summa idhayae aluthaama vera veliya paaru!");
         else{
@@ -33,6 +35,11 @@ function Course({image=im,name,price="00.00",rating="0",show=false}) {
             setPurchased(true);
             console.log("Order potaachu");
         }
+    }
+
+    function handleDelete(){
+        console.log("Delete "+name);
+        setShow(false);
     }
     
     if(show){
@@ -46,20 +53,21 @@ function Course({image=im,name,price="00.00",rating="0",show=false}) {
             <button onClick={(e)=>{{purchase(20)};}} className="mt-3 bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-700">  Buy Now </button>
             <button onClick={(p) => {{applyDiscount(20)}}} className="mt-3 bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-700">{discount}</button>
             <p>{purchased ? "Already purchased":"Get it Now"}</p>
+            <button onClick={handleDelete} className="mt-3 bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-red-700">X</button>
         </div> 
      );
     }
-    else{
-        image=im;
-        return(
-            <> 
-                <div className="card">
-                    <img src={image}></img>
-                    <p className="pt-6">Course time ends</p>
-                </div>
-            </>
-        )
-    }
+    // else{
+    //     image=im;
+    //     return(
+    //         <> 
+    //             <div className="card">
+    //                 <img src={image}></img>
+    //                 <p className="pt-6">Course time ends</p>
+    //             </div>
+    //         </>
+    //     )
+    // }
 }
 
 export default Course;
