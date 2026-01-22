@@ -25,21 +25,38 @@ function Course({image=im,name,price="00.00",rating="0"}) {
         }
         
     }
+    
+    //  This is a sample code for fetching data from an API using useEffect
+    useEffect(()=>{
+        // console.log("useEffect called--------------> Effect");
 
-    useEffect(()=>{
-        console.log("purchase updated---->Effect");
-    },[purchased]);
+        fetch('http://localhost:3000/courses')
+        .then(response => {
+            console.log(response);
+            return response.json();
+        }).then(data => {
+            console.log(data);
+        });
+    },[]);
+    // End of sample code
 
-    useEffect(()=>{
-        console.log("Discount button clicked---->Effect");
-    },[discount]);
 
-    useEffect(()=>{
-        console.log("Final price updated---->Effect");
-    },[final_price]);
-    useEffect(()=>{
-        console.log("Item deleted---->Effect");
-    },[show]);
+    // useEffect(()=>{
+    //     console.log("purchase updated---->Effect");
+    // },[purchased]);
+
+    // useEffect(()=>{
+    //     console.log("Discount button clicked---->Effect");
+    // },[discount]);
+
+    // useEffect(()=>{
+    //     console.log("Final price updated---->Effect");
+    // },[final_price]);
+
+    // useEffect(()=>{
+    //     console.log("Item deleted---->Effect");
+    // },[show]);
+    
     function purchase(discount){
         
         if(purchased)

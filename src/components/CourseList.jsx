@@ -1,23 +1,26 @@
-import physics from '../assets/images/physics.jpeg';
-import chemistry from '../assets/images/chemistry.jpeg';
-import maths from '../assets/images/maths.jpeg';
-import biology from '../assets/images/biology.jpg';
-import computer from '../assets/images/computer.jpg'; 
 import Course from './Course.jsx';
 import { useEffect,useState } from 'react';
 
 export default function CourseList() {
 
-    const [courses,setCourses] = useState([
-        { id: 1,image:physics, name: "Physics", price:499.00 , rating: "4.5", show: true },
-        { id: 3,image:chemistry, name: "Chemistry", price:499.00 , rating: "4.8", show: true },
-        { id: 2,image:maths, name:"Mathematics", price:499.00 , rating: "4.2", show: true },
-        { id: 4,image:biology, name: "Biology", price:699.00 , rating: "4.6", show: true },
-        { id: 5,image:computer, name: "Computer Science", price:699.00 , rating: "4.9", show: true }
-    ]);
+    const [courses,setCourses] = useState(null);
+
+    const[dummy,setDummy] = useState(true);
+    useEffect(()=>{
+        // console.log("useEffect called--------------> Effect");
+
+        fetch('http://localhost:3000/courses')
+        .then(response => {
+            return response.json()
+        }).then(data => setCourses(data));
+    },[]);
 
     // courses.sort((x,y) => (x.name ?? "").toLowerCase().localeCompare((y.name ?? "").toLowerCase()));
-    courses.sort((x,y) => x.rating-y.rating);
+    // courses.sort((x,y) => x.rating-y.rating);
+
+    if(!courses){
+        return <h2>Loading Courses....</h2>;
+    }
     const courseslist = courses.map(
         (course)=> <Course key={course.id} image={course.image} name={course.name} price={course.price} rating={course.rating} show={course.show} />)
     

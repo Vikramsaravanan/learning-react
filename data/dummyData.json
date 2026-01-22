@@ -1,0 +1,42 @@
+
+{
+"courses":[
+    {
+        "id": 1,
+        "image": "http://localhost:3000/assets/images/physics.jpeg", 
+        "name": "Physics", 
+        "price":499.00 , 
+        "rating": "4.5", 
+        "show": true 
+    },
+    { 
+        "id": 3,
+        "image":"http://localhost:3000/assets/images/chemistry.jpeg", 
+        "name": "Chemistry", "price":499.00 , 
+        "rating": "4.8", 
+        "show": true 
+    },
+    { 
+        "id": 2,
+        "image":"http://localhost:3000/assets/images/maths.jpeg", 
+        "name":"Mathematics", "price":499.00 , 
+        "rating": "4.2", 
+        "show": true 
+    },
+    { 
+        "id": 4,
+        "image":"http://localhost:3000/assets/images/biology.jpg", 
+        "name": "Biology", "price":699.00 , 
+        "rating": "4.6", 
+        "show": true 
+    },
+    { 
+        "id": 5,
+        "image":"http://localhost:3000/assets/images/computer.jpg", 
+        "name": "Computer Science", 
+        "price":699.00 , 
+        "rating": "4.9", 
+        "show": true 
+    }
+]
+}
