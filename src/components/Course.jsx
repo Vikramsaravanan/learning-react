@@ -32,7 +32,7 @@ function Course({image=im,name,price="00.00",rating="0"}) {
 
         fetch('http://localhost:3000/courses')
         .then(response => {
-            console.log(response);
+            // console.log(response);
             return response.json();
         }).then(data => {
             console.log(data);
