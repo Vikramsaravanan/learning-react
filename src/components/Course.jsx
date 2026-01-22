@@ -1,6 +1,6 @@
 import "../index.css";
 import im from '../assets/images/coming-soon.jpg';
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 
 const course1 = "This is course 1";
 
@@ -26,15 +26,29 @@ function Course({image=im,name,price="00.00",rating="0"}) {
         
     }
 
+    useEffect(()=>{
+        console.log("purchase updated---->Effect");
+    },[purchased]);
+
+    useEffect(()=>{
+        console.log("Discount button clicked---->Effect");
+    },[discount]);
+
+    useEffect(()=>{
+        console.log("Final price updated---->Effect");
+    },[final_price]);
+    useEffect(()=>{
+        console.log("Item deleted---->Effect");
+    },[show]);
     function purchase(discount){
         
         if(purchased)
             console.log("summa idhayae aluthaama vera veliya paaru!");
         else{
             console.log("Purchased "+name+" for $"+(final_price));
-            setPurchased(true);
             console.log("Order potaachu");
         }
+        setPurchased(true);
     }
 
     function handleDelete(){
@@ -50,24 +64,24 @@ function Course({image=im,name,price="00.00",rating="0"}) {
             {/* <p>This is Markiv's {props.name} course</p> */}
             <p>${final_price}</p>
             <p>{rating}</p>
-            <button onClick={(e)=>{{purchase(20)};}} className="mt-3 bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-700">  Buy Now </button>
-            <button onClick={(p) => {{applyDiscount(20)}}} className="mt-3 bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-700">{discount}</button>
+            <button onClick={(e)=>{{purchase(20)}}} className={`mt-3 px-4 py-2 rounded text-white ${purchased? "bg-gray-500" : "bg-green-600 hover:bg-blue-700"}`}>  Buy Now </button>
+            <button onClick={(p) => {{applyDiscount(20)}}} className={`mt-3 px-4 py-2 rounded ${(discount=="Already purchased")? "bg-gray-500" : "bg-green-600 hover:bg-blue-700"}`}>{discount}</button>
             <p>{purchased ? "Already purchased":"Get it Now"}</p>
             <button onClick={handleDelete} className="mt-3 bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-red-700">X</button>
         </div> 
      );
     }
-    // else{
-    //     image=im;
-    //     return(
-    //         <> 
-    //             <div className="card">
-    //                 <img src={image}></img>
-    //                 <p className="pt-6">Course time ends</p>
-    //             </div>
-    //         </>
-    //     )
-    // }
+    else{
+        image=im;
+        return(
+            <> 
+                <div className="card">
+                    <img src={image}></img>
+                    <p className="pt-6">Course time ends</p>
+                </div>
+            </>
+        )
+    }
 }
 
 export default Course;
