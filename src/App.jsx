@@ -7,10 +7,10 @@ function App() {
   return (
     <>
       {/* <Navbar /> */}
-      <div className='pt-10'>
+      <div className='pt-24 pl-24 pr-24 bg-gray-100 min-h-screen'>
         <CourseList/>
-      {/* <Footer /> */}
       </div>
+      {/* <Footer /> */}
     </>
     
   )

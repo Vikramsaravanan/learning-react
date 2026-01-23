@@ -29,7 +29,7 @@ export default function CourseList(){
     if(!courses){
         return (
             <>
-                {!error && <img className="pl-60" src="data\assets\gif\loading.gif" alt="Loading Courses...!"/>}
+                {!error && <img className="pl-28 " src="data\assets\gif\loading.gif" alt="Loading Courses...!"/>}
                 {error && <p className='flex justify-center items-center'>{error}</p>}
             </>
         );
