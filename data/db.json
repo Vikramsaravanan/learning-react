@@ -2,18 +2,73 @@
   "posts": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "username": "vikram_01",
+      "email": "vikram@gmail.com",
+      "role": "admin",
+      "active": true
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "username": "thiru_dev",
+      "email": "thiru@gmail.com",
+      "role": "developer",
+      "active": true
+    },
+    {
+      "id": 3,
+      "username": "karthi_ui",
+      "email": "karthi@gmail.com",
+      "role": "designer",
+      "active": false
+    },
+    {
+      "id": 4,
+      "username": "arun_js",
+      "email": "arun@gmail.com",
+      "role": "frontend",
+      "active": true
+    },
+    {
+      "id": 5,
+      "username": "nithya_api",
+      "email": "nithya@gmail.com",
+      "role": "backend",
+      "active": true
+    },
+    {
+      "id": 6,
+      "username": "deepak_ml",
+      "email": "deepak@gmail.com",
+      "role": "ai",
+      "active": false
+    },
+    {
+      "id": 7,
+      "username": "saran_test",
+      "email": "saran@gmail.com",
+      "role": "tester",
+      "active": true
+    },
+    {
+      "id": 8,
+      "username": "meena_ui",
+      "email": "meena@gmail.com",
+      "role": "ui",
+      "active": true
+    },
+    {
+      "id": 9,
+      "username": "rahul_ops",
+      "email": "rahul@gmail.com",
+      "role": "devops",
+      "active": false
+    },
+    {
+      "id": 10,
+      "username": "admin_master",
+      "email": "admin@gmail.com",
+      "role": "admin",
+      "active": true
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
