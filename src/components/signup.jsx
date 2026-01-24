@@ -77,7 +77,7 @@ function Signup(){
                         className="accent-blue-500 mr-2 cursor-pointer"/>
                     <label htmlFor="i_agree" className="text-sm cursor-pointer">I agree </label> 
                     <br />   
-                    {!same && <p>Password Not Same</p>}
+                    {!same && <p className="text-red-600">Password Not Same</p>}
                     <button 
                         type="submit" 
                         className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Signup</button>

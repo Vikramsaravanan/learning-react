@@ -11,7 +11,7 @@ export default function CourseList(){
     if(!courses){
         return (
             <>
-                {!error && <img className="pl-[200px] h-[500px]" src="data\assets\gif\loading.gif" alt="Loading Courses...!"/>}
+                {!error && <img className="ml-[250px] h-[600px] w-[890px]" src="data\assets\gif\loading.gif" alt="Loading Courses...!"/>}
                 {error && <p className='flex justify-center items-center'>{error}</p>}
             </>
         );
@@ -30,7 +30,9 @@ export default function CourseList(){
     
         return (
             <>
-            {courseslist}
+            <div className='pt-24 pl-24 pr-24 bg-gray-100 min-h-screen'>
+                {courseslist}
+            </div>
             </>
         );
 }
