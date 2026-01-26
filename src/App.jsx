@@ -9,6 +9,7 @@ import Footer from './footer.jsx'
 import Notfound from './components/Notfound.jsx'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'; 
 
+import Chat from './Chatbot/components/Chat.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,11 +35,12 @@ function App() {
   return (
     <>
       {/* <Navbar /> */}
-      <RouterProvider router={router}/>
+      {/* <RouterProvider router={router}/> */}
       {/* <Signup />
       <Signin />
       <CourseList/> */}
       {/* <Footer /> */}
+      <Chat />
     </>
     
   )
